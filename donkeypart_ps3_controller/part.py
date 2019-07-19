@@ -140,65 +140,6 @@ class JoystickCreator(Joystick):
         return button, button_state, axis, axis_val
 
 
-class PS3JoystickOld(Joystick):
-    '''
-    An interface to a physical PS3 joystick available at /dev/input/js0
-    Contains mapping that worked for Raspian Jessie drivers
-    '''
-
-    def __init__(self, *args, **kwargs):
-        super(PS3JoystickOld, self).__init__(*args, **kwargs)
-
-        self.axis_names = {
-            0x00: 'left_stick_horz',
-            0x01: 'left_stick_vert',
-            0x02: 'right_stick_horz',
-            0x05: 'right_stick_vert',
-
-            0x1a: 'tilt_x',
-            0x1b: 'tilt_y',
-            0x3d: 'tilt_a',
-            0x3c: 'tilt_b',
-
-            0x32: 'L1_pressure',
-            0x33: 'R1_pressure',
-            0x31: 'R2_pressure',
-            0x30: 'L2_pressure',
-
-            0x36: 'cross_pressure',
-            0x35: 'circle_pressure',
-            0x37: 'square_pressure',
-            0x34: 'triangle_pressure',
-
-            0x2d: 'dpad_r_pressure',
-            0x2e: 'dpad_d_pressure',
-            0x2c: 'dpad_u_pressure',
-        }
-
-        self.button_names = {
-            0x120: 'select',
-            0x123: 'start',
-            0x2c0: 'PS',
-
-            0x12a: 'L1',
-            0x12b: 'R1',
-            0x128: 'L2',
-            0x129: 'R2',
-            0x121: 'L3',
-            0x122: 'R3',
-
-            0x12c: "triangle",
-            0x12d: "circle",
-            0x12e: "cross",
-            0x12f: 'square',
-
-            0x124: 'dpad_up',
-            0x126: 'dpad_down',
-            0x127: 'dpad_left',
-            0x125: 'dpad_right',
-        }
-
-
 class PS3Joystick(Joystick):
     '''
     An interface to a physical PS3 joystick available at /dev/input/js0
@@ -219,21 +160,19 @@ class PS3Joystick(Joystick):
         }
 
         self.button_names = {
-            0x13a: 'select',  # 8 314
-            0x13b: 'start',  # 9 315
+            0x138: 'select', 
+            0x139: 'start', 
             0x13c: 'PS',  # a  316
 
-            0x136: 'L1',  # 4 310
-            0x137: 'R1',  # 5 311
-            0x138: 'L2',  # 6 312
-            0x139: 'R2',  # 7 313
-            0x13d: 'L3',  # b 317
-            0x13e: 'R3',  # c 318
+            0x136: 'L2', 
+            0x134: 'L1', 
+            0x135: 'R1', 
+            0x137: 'R2',
 
-            0x133: "triangle",  # 2 307
-            0x131: "circle",  # 1 305
-            0x130: "cross",  # 0 304
-            0x134: 'square',  # 3 308
+            0x130: "triangle", 
+            0x132: "cross",
+            0x133: "square",
+            0x131: "circle", 
 
             0x220: 'dpad_up',  # d 544
             0x221: 'dpad_down',  # e 545
@@ -924,5 +863,6 @@ if __name__ == "__main__":
     '''
     print("You may need:")
     print('xinput set-prop "Sony PLAYSTATION(R)3 Controller" "Device Enabled" 0')
-    p = JoyStickPub(dev_fn='/dev/input/js0')
+    #p = JoyStickPub(dev_fn='/dev/input/js0')
+    p = JoyStickPub()
     p.run()

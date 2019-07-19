@@ -368,6 +368,7 @@ class JoystickController(object):
     def set_throttle(self, axis_val):
         # this value is often reversed, with positive value when pulling down
         self.throttle = (self.throttle_dir * axis_val * self.throttle_scale)
+        print("throttle", self.throttle)
         self.on_throttle_changes()
 
     def toggle_manual_recording(self):

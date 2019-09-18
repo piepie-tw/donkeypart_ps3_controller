@@ -273,8 +273,8 @@ class Adafruit_DCMotor_Hat:
         self.FORWARD = Adafruit_MotorHAT.FORWARD
         self.BACKWARD = Adafruit_MotorHAT.BACKWARD
         self.RELEASE = Adafruit_MotorHAT.RELEASE
-        #self.mh = Adafruit_MotorHAT(addr=0x60) 
-        self.mh = Adafruit_MotorHAT(addr=0x6f) 
+        self.mh = Adafruit_MotorHAT(addr=0x60) 
+        #self.mh = Adafruit_MotorHAT(addr=0x6f) 
 
         self.mhM1 = self.mh.getMotor(1)
         self.mhM2 = self.mh.getMotor(2)

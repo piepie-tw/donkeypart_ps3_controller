@@ -173,6 +173,8 @@ class PS3Joystick(Joystick):
             0x132: "cross",
             0x133: "square",
             0x131: "circle", 
+            #0x131: "dpad_right", 
+            #0x133: "dpad_left",
 
             0x220: 'dpad_up',  # d 544
             0x221: 'dpad_down',  # e 545
@@ -533,8 +535,10 @@ class PS3JoystickController(JoystickController):
 
         self.axis_trigger_map = {
             'left_stick_horz': self.set_steering,
-            #'right_stick_vert': self.set_throttle,
-            'left_stick_vert': self.set_throttle,
+            'right_stick_vert': self.set_throttle,
+
+            #'left_stick_horz': self.set_steering,
+            #'left_stick_vert': self.set_throttle,
         }
 
 

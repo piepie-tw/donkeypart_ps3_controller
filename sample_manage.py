@@ -181,7 +181,7 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None, camera_type
           inputs=['cam/image_array', 'tub/num_records'],
           outputs=['user/angle', 'user/throttle', 'user/mode', 'recording'],
           threaded=True)
-
+        # uncomment line 185 and line 194 for behavior testing
         """
         ctr = PS3JoystickController(
                 throttle_scale=cfg.JOYSTICK_MAX_THROTTLE,

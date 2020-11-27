@@ -154,7 +154,7 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None, camera_type
                 auto_record_on_throttle=cfg.AUTO_RECORD_ON_THROTTLE)
             ctr.set_deadzone(cfg.JOYSTICK_DEADZONE)
         else:
-            from donkeycar.parts.controller import get_js_controller
+            #from donkeycar.parts.controller import get_js_controller
 
             #ctr = get_js_controller(cfg)
             ctr = PS3JoystickController(
@@ -181,6 +181,17 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None, camera_type
           inputs=['cam/image_array', 'tub/num_records'],
           outputs=['user/angle', 'user/throttle', 'user/mode', 'recording'],
           threaded=True)
+
+        """
+        ctr = PS3JoystickController(
+                throttle_scale=cfg.JOYSTICK_MAX_THROTTLE,
+                steering_scale=cfg.JOYSTICK_STEERING_SCALE, auto_record_on_throttle=cfg.AUTO_RECORD_ON_THROTTLE)
+
+        V.add(ctr, 
+          inputs=['cam/image_array'],
+          outputs=['user/angle', 'user/throttle', 'user/mode', 'recording'],
+          threaded=True)
+        """
 
     #this throttle filter will allow one tap back for esc reverse
     th_filter = ThrottleFilter()

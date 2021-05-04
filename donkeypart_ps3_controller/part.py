@@ -159,51 +159,34 @@ class PS3Joystick(Joystick):
             0x05: 'R2_pressure',
         }
 
+
         self.button_names = {
-            0x138: 'select', 
-            0x139: 'start', 
-            0x13c: 'PS',  # a  316
+            0x138: 'select',  # 8 312
+            0x139: 'start',   # 9 313
+            #0x13c: 'PS',     # a  316
 
-            0x136: 'L2', 
-            0x134: 'L1', 
-            0x135: 'R1', 
-            0x137: 'R2',
+            0x134: 'L1',  # 4 308
+            0x135: 'R1',  # 5 309
+            0x136: 'L2',  # 6 310
+            0x137: 'R2',  # 7 311
 
-            0x130: "triangle", 
-            0x132: "cross",
-            0x133: "square",
-            0x131: "circle", 
+            0x130: 'triangle',  # 3 304
+            0x131: 'circle',    # 1 305
+            0x133: 'square',    # 2 307
+            0x132: 'cross',     # 0 306
 
-            0x220: 'dpad_up',  # d 544
-            0x221: 'dpad_down',  # e 545
-            0x222: 'dpad_left',  # f 546
-            0x223: 'dpad_right',  # 10 547
+            # 045e:028e
+            #0x011: 'dpad_up',     # d 17
+            #0x011: 'dpad_down',   # d 17
+            #0x010: 'dpad_left',   # f 16
+            #0x010: 'dpad_right',  # 10 16
+
+            # 2563:0575 (ShanWan PC/PS3/Android)
+            #0x220: 'dpad_up',     # d 544
+            #0x221: 'dpad_down',   # e 545
+            #0x222: 'dpad_left',   # f 546
+            #0x223: 'dpad_right',  # 10 547
         }
-
-        """
-        self.button_names = {
-            0x13a: 'select',  # 8 314
-            0x13b: 'start',  # 9 315
-            0x13c: 'PS',  # a  316
-
-            0x136: 'L1',  # 4 310
-            0x137: 'R1',  # 5 311
-            0x138: 'L2',  # 6 312
-            0x139: 'R2',  # 7 313
-            0x13d: 'L3',  # b 317
-            0x13e: 'R3',  # c 318
-
-            0x133: "triangle",  # 2 307
-            0x131: "circle",  # 1 305
-            0x130: "cross",  # 0 304
-            0x134: 'square',  # 3 308
-
-            0x220: 'dpad_up',  # d 544
-            0x221: 'dpad_down',  # e 545
-            0x222: 'dpad_left',  # f 546
-            0x223: 'dpad_right',  # 10 547
-        }
-        """
 
 
 
@@ -514,21 +497,17 @@ class PS3JoystickController(JoystickController):
             'cross': self.toggle_mode,
         }
         """
+
         self.button_down_trigger_map = {
             'select': self.toggle_mode,
             'circle': self.toggle_manual_recording,
             'triangle': self.erase_last_N_records,
             'cross': self.emergency_stop,
-            'dpad_up': self.increase_max_throttle,
-            'dpad_down': self.decrease_max_throttle,
+            #'dpad_up': self.increase_max_throttle,
+            #'dpad_down': self.decrease_max_throttle,
             'start': self.toggle_constant_throttle,
-            "R1": self.chaos_monkey_on_right,
-            "L1": self.chaos_monkey_on_left,
-        }
-
-        self.button_up_trigger_map = {
-            "R1": self.chaos_monkey_off,
-            "L1": self.chaos_monkey_off,
+            'R1': self.increase_max_throttle,
+            'L1': self.decrease_max_throttle,
         }
 
         self.axis_trigger_map = {

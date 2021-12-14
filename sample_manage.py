@@ -14,6 +14,8 @@ Options:
     --myconfig=filename     Specify myconfig file to use. 
                             [default: myconfig.py]
 """
+# for donkeycar commit 81c2ea397695790c370669ce57988c403f7cf7ea (HEAD, tag: 4.2.1, origin/master, master)
+
 import os
 import time
 import logging

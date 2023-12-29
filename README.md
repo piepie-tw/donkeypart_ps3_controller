@@ -12,7 +12,6 @@ and the Bluetooth driver used to support it. The default code has been written a
 
 ## Install donkeycar & overwrite Joystick
 
-1. Connect your bluetooth controller to the raspberry pi. See the Bluetooth section below.
 ```bash
 cd ~
 git clone https://github.com/piepie-tw/donkeypart_ps3_controller/

@@ -22,7 +22,7 @@ cd donkeycar
 git checkout 1b548b9
 sed -i "s/'tensorflow @/#'tensorflow @/g" setup.py
 
-cp ~/controller.py ~/donkeycar/donkeycar/parts/controller.py
+cp ~/donkeypart_ps3_controller/controller.py ~/donkeycar/donkeycar/parts/controller.py
 
 time pip3 install -e .[pi]
 ```
